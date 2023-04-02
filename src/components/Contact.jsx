@@ -32,8 +32,8 @@ const Contact = () => {
         setLoading(true);
 
         emailjs.send(
-            "service_efvobiv",
-            "template_0lzigzo",
+            process.env.EMAILJS_SERVICE,
+            process.env.EMAILJS_TEMPLATE,
             {
                 from_name: form.name,
                 to_name: "Tomas",
@@ -41,7 +41,7 @@ const Contact = () => {
                 to_email: "tomygarnero9429@gmail.com",
                 message: form.message
             },
-            "33o1bJQ2YXVl2fkU7"
+            process.env.EMAIL_PUBLIC_KEY
         )
         .then(() => {
             setLoading(false);
